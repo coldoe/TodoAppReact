@@ -1,26 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+//components
+import { Todoitem } from "./Components/todo-item/todoitem.component";
+
+class App extends Component {
+  url = "https://localhost:44367/api/TodoTasks/";
+
+  constructor() {
+    super();
+    this.state = {
+      todoList: [],
+    };
+  }
+
+  //called immidietly after mounting the component
+  componentDidMount() {
+    fetch(this.url)
+      .then((res) => res.json())
+      .then((todos) => this.setState({ todoList: todos }));
+  }
+
+  render() {
+    // const todoList = this.state;
+
+    return (
+      <div className="App">
+        {/* new component */}
+        <button>add new todo item</button>
+        <label>
+          asdas
+          <input></input>
+        </label>
+
+        {this.state.todoList.map((task) => (
+          <Todoitem
+            key={task.idTodoTask}
+            description={task.taskDescription}
+            date={task.createTime}
+          />
+        ))}
+      </div>
+    );
+  }
 }
 
 export default App;
