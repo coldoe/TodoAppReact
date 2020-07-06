@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Moment from "moment";
 import "./App.css";
 
 //components
@@ -37,7 +38,7 @@ class App extends Component {
           <Todoitem
             key={task.idTodoTask}
             description={task.taskDescription}
-            date={task.createTime}
+            date={Moment(task.createTime).format("YYYY/MM/DD HH:MM:SS")}
           />
         ))}
       </div>
