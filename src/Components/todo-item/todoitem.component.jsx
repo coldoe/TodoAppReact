@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+//styles,bootstrap
 import "../todo-item/todoitem.style.css";
+import { Button } from "react-bootstrap";
 
 export const Todoitem = (props) => {
   const url = "https://localhost:44367/api/TodoTasks/";
@@ -27,7 +29,13 @@ export const Todoitem = (props) => {
     <div className="todoitem">
       <h1>{props.description}</h1>
       <h3>{props.date}</h3>
-      <button onClick={() => deleteTodo(props.id)}>delete</button>
+      <Button
+        variant="danger"
+        type="submit"
+        onClick={() => deleteTodo(props.id)}
+      >
+        Delete
+      </Button>
     </div>
   ) : null;
 };

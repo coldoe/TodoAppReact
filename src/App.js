@@ -6,6 +6,8 @@ import "./App.css";
 //components
 import { Todoitem } from "./Components/todo-item/todoitem.component";
 import AddItem from "./Components/addItem/addItem.component";
+//bootstrap
+import "bootstrap/dist/css/bootstrap.css";
 
 class App extends Component {
   url = "https://localhost:44367/api/TodoTasks/";

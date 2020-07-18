@@ -6,7 +6,7 @@
   border-width: 5px;
   margin: 1em;
   width: 40%;
-  height: 25%;
+  height: 20%;
   padding: 2%;
-  background-color: cadetblue;
+  background-image: linear-gradient(to bottom right, white, yellow);
 }
