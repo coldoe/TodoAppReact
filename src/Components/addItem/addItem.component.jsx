@@ -11,10 +11,19 @@ class AddItem extends Component {
     };
   }
 
-  render() {
-    // // const todoList = this.state;
-    // const { todo } = this.state;
+  async sendTodo() {
+    const reqOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ TaskDescription: this.state.todo }),
+    };
 
+    await fetch(this.url, reqOptions)
+      .then((res) => res.json())
+      .then((text) => console.log(text));
+  }
+
+  render() {
     return (
       <div className="AddItem">
         <label>
@@ -25,15 +34,11 @@ class AddItem extends Component {
           ></input>
         </label>
         <div>
-          <button onClick={() => console.log(this.state.todo)}>
-            add new todo item
-          </button>
+          <button onClick={() => this.sendTodo()}>add new todo item</button>
         </div>
       </div>
     );
   }
 }
-
-function sendTodo() {}
 
 export default AddItem;
