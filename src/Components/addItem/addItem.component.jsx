@@ -21,6 +21,8 @@ class AddItem extends Component {
     await fetch(this.url, reqOptions)
       .then((res) => res.json())
       .then((text) => console.log(text));
+
+    window.location.reload(false);
   }
 
   render() {
