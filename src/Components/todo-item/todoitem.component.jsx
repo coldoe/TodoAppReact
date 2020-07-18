@@ -5,7 +5,7 @@ export const Todoitem = (props) => (
   <div className="todoitem">
     <h1>{props.description}</h1>
     <h3>{props.date}</h3>
-    <button>delete</button>
-    <button>update</button>
+    <button onClick={() => console.log(props.id)}>delete</button>
+    <button onClick={() => console.log(props.id)}>update</button>
   </div>
 );

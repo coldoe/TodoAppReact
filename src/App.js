@@ -33,6 +33,7 @@ class App extends Component {
         {this.state.todoList.map((task) => (
           <Todoitem
             key={task.idTodoTask}
+            id={task.idTodoTask}
             description={task.taskDescription}
             date={Moment(task.createTime).format("YYYY/MM/DD HH:MM:SS")}
           />
