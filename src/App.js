@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import Moment from "moment";
+
 import "./App.css";
 
 //components
 import { Todoitem } from "./Components/todo-item/todoitem.component";
+import AddItem from "./Components/addItem/addItem.component";
 
 class App extends Component {
   url = "https://localhost:44367/api/TodoTasks/";
@@ -16,23 +18,17 @@ class App extends Component {
   }
 
   //called immidietly after mounting the component
-  componentDidMount() {
-    fetch(this.url)
+  async componentDidMount() {
+    await fetch(this.url)
       .then((res) => res.json())
       .then((todos) => this.setState({ todoList: todos }));
   }
 
   render() {
     // const todoList = this.state;
-
     return (
       <div className="App">
-        {/* new component */}
-        <button>add new todo item</button>
-        <label>
-          asdas
-          <input></input>
-        </label>
+        <AddItem></AddItem>
 
         {this.state.todoList.map((task) => (
           <Todoitem

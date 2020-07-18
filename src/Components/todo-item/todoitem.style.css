@@ -1,5 +1,8 @@
 .todoitem {
+  margin: auto;
   border-radius: 2%;
   border-style: solid;
   margin: 5em;
+  width: 40%;
+  height: 25%;
 }
